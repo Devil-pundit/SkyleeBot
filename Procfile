@@ -1,2 +1,1 @@
-worker: python3 -m 
-tg_botps:scale worker=1
+web: python3 -m skylee

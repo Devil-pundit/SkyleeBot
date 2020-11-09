@@ -2,7 +2,7 @@
 {
   "name": "Skylee",
   "description": "Telegram's Pro group manager. Modular Telegram group management bot!",
-  "logo": "https://telegra.ph/file/63350037b2146671a2511.jpg",
+  "logo": "https://telegra.ph/file/6ee7b8516862371288b5f.jpg",
   "keywords": [
     "telegram",
     "best",
@@ -10,7 +10,7 @@
     "manager",
     "3"
   ],
-  "repository": "https://github.com/EmiliaDevs/SkyleeBot.git",
+  "repository": "https://github.com/Devil-pundit/SkyleeBot.git",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable env variables",
@@ -32,12 +32,12 @@
     },
     "OWNER_ID": {
       "description": "An integer of consisting of your owner ID",
-      "value": "1083049180",
+      "value": "890091227",
       "required": false
     },
     "OWNER_USERNAME": {
       "description": "Your username",
-      "value": "GodDrick",
+      "value": "Devil_pundit",
       "required": false
     },
     "WEBHOOK": {
@@ -55,15 +55,15 @@
     },
     "SUDO_USERS": {
       "description": "A space separated list of user_ids which should be considered sudo users",
-      "value": "1083049180"
+      "value": "890091227"
     },
     "SUPPORT_USERS": {
       "description": "A space separated list of user_ids which should be considered support users (can gban/ungban, nothing else)",
-      "value": "1083049180"
+      "value": "890091227"
     },
     "WHITELIST_USERS": {
       "description": "A space separated list of user_ids which should be considered whitelisted - they can't be banned.",
-      "value": "1083049180"
+      "value": "890091227"
     },
     "DONATION_LINK": {
       "description": "Optional: link where you would like to receive donations.",
@@ -91,7 +91,7 @@
     },
     "BAN_STICKER": {
       "description": "Which sticker to use when banning people. Use https://telegram.dog/ShowJsonBot to get the file_id",
-      "value": "CAADBAAD6AMAAkJ_EQNu_RjOszbmnxYE",
+      "value": "AQADbqyyanQAA2w3AAI",
       "required": false
     },
     "API_KEY": {

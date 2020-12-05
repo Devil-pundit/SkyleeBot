@@ -167,7 +167,7 @@ def gban(update, context):
         return
 
     message.reply_text(
-        f"<b>Global Banned</b> {mention_html(user_chat.id, user_chat.first_name)}"
+        f"<b>Beginning of Global Ban for</b> {mention_html(user_chat.id, user_chat.first_name)}"
         f"\n<b>With ID</b>: <code>{user_chat.id}</code>"
         f"\n<b>Reason</b>: <code>{reason or 'No reason given'}</code>",
         parse_mode=ParseMode.HTML,
@@ -310,18 +310,17 @@ def gbanlist(update, context):
 def check_and_ban(update, user_id, should_message=True):
 
     try:
-        spmban = spamwtc.get_ban(int(user_id))
-        if spmban:
-            update.effective_chat.kick_member(user_id)
-            if should_message:
-                update.effective_message.reply_text(
-                    f"This person has been detected as spambot by @SpamWatch and has been removed!\nReason: <code>{spmban.reason}</code>",
-                    parse_mode=ParseMode.HTML,
-                )
-                return
-            else:
-                return
-    except Exception:
+       spmban = spamwtc.get_ban(int(user_id))
+       if spmban:
+           update.effective_chat.kick_member(user_id)
+           if should_message:
+              update.effective_message.reply_text(
+              f"This person has been detected as spambot by @SpamWatch and has been removed!\nReason: <code>{spmban.reason}</code>",
+              parse_mode=ParseMode.HTML)
+              return
+           else:
+              return
+    except:
         pass
 
     if sql.is_user_gbanned(user_id):
@@ -394,7 +393,7 @@ def gbanstat(update, context):
 
 
 def __stats__():
-    return "✗ {} gbanned users.".format(sql.num_gbanned_users())
+    return "• {} gbanned users.".format(sql.num_gbanned_users())
 
 
 def __user_info__(user_id):
@@ -409,7 +408,7 @@ def __user_info__(user_id):
         user = sql.get_gbanned_user(user_id)
         if user.reason:
             text += "\nReason: {}".format(html.escape(user.reason))
-            text += "\n\nAppeal at @MeikosupportChat if you think it's a Mistake !"
+            text += "\n\nAppeal at @SpongeBobNobot if you think it's invalid."
     else:
         text = text.format("No")
     return text
@@ -422,19 +421,14 @@ def __migrate__(old_chat_id, new_chat_id):
 def __chat_settings__(chat_id, user_id):
     return "This chat is enforcing *gbans*: `{}`.".format(sql.does_chat_gban(chat_id))
 
-
 __help__ = """
 *Admin only:*
- ✗ /spamshield <on/off/yes/no>: Will disable or enable the effect of Spam protection in your group.
-
+ - /spamshield <on/off/yes/no>: Will disable or enable the effect of Spam protection in your group.
 Spam shield uses @Spamwatch API and Global bans to remove Spammers as much as possible from your chatroom!
 
 *What is SpamWatch?*
-
-SpamWatch maintains a large constantly updated ban-list of spambots, trolls, bitcoin spammers and unsavoury characters.
-@venomous\_devil\_bot will constantly help banning spammers off from your group automatically So, you don't have to worry about spammers storming your group[.](https://telegra.ph/file/c1051d264a5b4146bd71e.jpg)
+SpamWatch maintains a large constantly updated ban-list of spambots, trolls, bitcoin spammers and unsavoury characters. SpongeBob will constantly help banning spammers off from your group automatically So, you don't have to worry about spammers storming your group[.](https://telegra.ph/file/c1051d264a5b4146bd71e.jpg)
 """
-
 __mod_name__ = "Spam Shield"
 
 GBAN_HANDLER = CommandHandler(
